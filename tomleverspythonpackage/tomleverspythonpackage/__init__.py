@@ -4,7 +4,13 @@ tomleverspythonpackage
 A Python package offering Tom Lever's Python solutions
 
 Exports:
-    remove_input
+    convertlistofhexadecimalnumberstolistofdecimalnumbers
+    csvfilereader
+    exporttopdf
+    getlistofanchortagswithhyperlinkreferences
+    joindatasets
+    listabsolutepathsoffileindirectorytree
+    modifypippackages
 '''
 
 __version__ = "0.1.0"
