@@ -11,6 +11,7 @@ Exports:
     joindatasets
     listabsolutepathsoffileindirectorytree
     modifypippackages
+    utilitiesfororganizinglinesfromacsvfileintoadataframe
 '''
 
 __version__ = "0.1.0"
