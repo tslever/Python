@@ -10,7 +10,10 @@ setup(
     license='MIT License',
     description='A Python package offering Tom Lever\'s Python solutions',
     long_description=open('README.md').read(),
-    install_requires=[],
+    install_requires=[
+        "nbconvert==7.16.4",
+        "requests==2.32.3"
+    ],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Science/Research',
