@@ -4,6 +4,7 @@ utilitiesfororganizinglinesfromacsvfileintoadataframe
 A Python package offering utilities for organizing lines from a CSV file into a dataframe
 
 Exports:
+    acsvfileorganizer
     organizelinesfromacsvfileintoadataframe
 '''
 
