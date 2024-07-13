@@ -1,6 +1,6 @@
-pip install virtualenv
-virtualenv virtual_environment
-source virtual_environment/Scripts/activate
-pip -V
-pip install -r requirements.txt
-deactivate
+Optionally, `pip install virtualenv`
+`python -m venv virtual_environment` or `virtualenv virtual_environment`
+`source virtual_environment/Scripts/activate`
+`pip --version`
+`pip install -r requirements.txt`
+`deactivate`
