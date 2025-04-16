@@ -10,12 +10,12 @@ def planck_function(wavelength, T, A):
     c = 299792458       # Speed of light (m/s)
     k = 1.380649e-23    # Boltzmann's constant (J/K)
     spectral_irradiance = (2 * h * c**2) / (wavelength**5 * (np.exp(h * c / (k * T * wavelength)) - 1))
-    r = 6.96 * 10**8
+    r = 6.957 * 10**8
     d = 1.496 * 10**11
     conversion_factor = 1 / (10**9) # m / nm
     return A * conversion_factor * spectral_irradiance
     # Consider using the following formula to have temperature be the only unknown coefficient.
-    # return 2 * math.pi * r**2 / d**2 * conversion_factor * spectral_irradiance
+    # return math.pi * r**2 / d**2 * conversion_factor * spectral_irradiance
 
 # Load and prepare data
 df = pd.read_csv('spectral_irradiance_vs_wavelength.csv')
@@ -36,7 +36,7 @@ column_of_uncertainties = df_sample['IRRADIANCE_UNCERTAINTY']
 See https://iopscience.iop.org/article/10.3847/0004-6256/152/2/41
 for temperature of 5772 K.
 '''
-tentative_temperature_and_amplitude = [5772, 1e-4]  # in Kelvin and W/(m²·nm)
+tentative_temperature_and_amplitude = [5772, 6.794e-5]  # in Kelvin and W/(m²·nm)
 bounds = ([4000, 0], [7000, 1])
 tuple_of_best_temperature_and_amplitude, _ = curve_fit(
     planck_function,
