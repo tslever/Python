@@ -13,9 +13,9 @@ def planck_function(wavelength, T, A):
     r = 6.957 * 10**8
     d = 1.496 * 10**11
     conversion_factor = 1 / (10**9) # m / nm
-    return A * conversion_factor * spectral_irradiance
-    # Consider using the following formula to have temperature be the only unknown coefficient.
-    # return math.pi * r**2 / d**2 * conversion_factor * spectral_irradiance
+    #return A * conversion_factor * spectral_irradiance
+    # This is the actual formula.
+    return math.pi * r**2 / d**2 * conversion_factor * (2 * h * c**2) / (wavelength**5 * (np.exp(h * c / (k * 5780 * wavelength)) - 1))
 
 # Load and prepare data
 df = pd.read_csv('spectral_irradiance_vs_wavelength.csv')
