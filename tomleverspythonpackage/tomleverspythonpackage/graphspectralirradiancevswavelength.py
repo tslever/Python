@@ -19,13 +19,15 @@ def planck_function(wavelength, T, A):
 
 # Load and prepare data
 df = pd.read_csv('spectral_irradiance_vs_wavelength.csv')
-df = df[["MIN_WAVELENGTH", "MAX_WAVELENGTH", "IRRADIANCE", "IRRADIANCE_UNCERTAINTY"]]
+df = df[["date", "MIN_WAVELENGTH", "MAX_WAVELENGTH", "IRRADIANCE", "IRRADIANCE_UNCERTAINTY"]]
 df["MIN_WAVELENGTH"] = df["MIN_WAVELENGTH"] * 1e-9
 df["MAX_WAVELENGTH"] = df["MAX_WAVELENGTH"] * 1e-9
 df = df.dropna(ignore_index = True)
 mask = np.isfinite(df["MIN_WAVELENGTH"]) & np.isfinite(df["MAX_WAVELENGTH"]) & np.isfinite(df["IRRADIANCE"]) & np.isfinite(df["IRRADIANCE_UNCERTAINTY"])
 df = df[mask]
-df_sample = df.sample(n = 1000, random_state = 0)
+df.sort_values(by = ["date"], ascending = True)
+#df_sample = df.sample(n = 1000, random_state = 0)
+df_sample = df[-10_000:]
 column_of_average_wavelengths_in_meters = (df_sample['MIN_WAVELENGTH'] + df_sample['MAX_WAVELENGTH']) / 2
 column_of_average_wavelengths_in_nanometers = column_of_average_wavelengths_in_meters * 1e9
 column_of_spectral_irradiances = df_sample['IRRADIANCE']
