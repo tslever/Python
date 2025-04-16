@@ -179,6 +179,8 @@ cumulative_irradiance = cumulative_trapezoid(
     linearly_spaced_wavelengths_in_nanometers,
     initial = 0
 )
+peak_index = np.argmax(cumulative_irradiance)
+print("Maximum cumulative irradiance: " + str(cumulative_irradiance[peak_index]))
 plt.figure(figsize = (10, 6))
 plt.plot(
     linearly_spaced_wavelengths_in_nanometers,
